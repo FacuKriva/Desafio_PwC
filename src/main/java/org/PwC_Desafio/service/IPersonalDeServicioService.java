@@ -1,6 +1,7 @@
 package org.PwC_Desafio.service;
 
 import org.PwC_Desafio.model.PersonalDeServicio;
+import org.PwC_Desafio.model.Seccion;
 
 public interface IPersonalDeServicioService {
     //---------------------------------------------------------------------------------------------------
@@ -9,7 +10,7 @@ public interface IPersonalDeServicioService {
      * Transladar de sección a uno de personal de servicio.
      * @param id id del personal de servicio.
      */
-    PersonalDeServicio cambiarSeccion(Long id, String seccionAsignada);
+    PersonalDeServicio cambiarSeccion(Long id, Seccion seccionAsignada);
     //----------------------------------------------------------------------------------------------------
     // Adicional
 

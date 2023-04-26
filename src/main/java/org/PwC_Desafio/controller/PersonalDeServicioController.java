@@ -1,6 +1,7 @@
 package org.PwC_Desafio.controller;
 
 import org.PwC_Desafio.model.PersonalDeServicio;
+import org.PwC_Desafio.model.Seccion;
 import org.PwC_Desafio.service.impl.PersonalDeServicioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class PersonalDeServicioController {
     // TODO: Parte del requerimiento del desafío.
     /* Cambiamos la sección de un empleado de servicio */
     @PostMapping("/{id}")
-    public ResponseEntity<PersonalDeServicio> cambiarSeccion(@RequestBody Long id, String seccionAsignada) {
+    public ResponseEntity<PersonalDeServicio> cambiarSeccion(@RequestBody Long id, Seccion seccionAsignada) {
         return ResponseEntity.ok(personalDeServicioService.cambiarSeccion(id, seccionAsignada));
     }
 
