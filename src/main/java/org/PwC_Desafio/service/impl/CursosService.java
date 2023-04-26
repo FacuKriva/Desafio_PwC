@@ -6,9 +6,7 @@ import org.PwC_Desafio.repositories.CursosRepository;
 import org.PwC_Desafio.service.ICursosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class CursosService implements ICursosService {
@@ -16,6 +14,15 @@ public class CursosService implements ICursosService {
     @Autowired
     CursosRepository cursosRepository;
 
+    // --------------------------------------------------------------------------------------------------
+    // TODO: Parte del requerimiento del desafío.
+    @Override
+    public List<Estudiantes> listarEstudiantesPorCurso(Long idCurso) {
+        return cursosRepository.listarEstudiantesPorCurso(idCurso);
+    }
+    // --------------------------------------------------------------------------------------------------
+
+    //Adicional
     @Override
     public Cursos registrarCurso(Cursos curso) {
         return cursosRepository.save(curso);
@@ -29,10 +36,5 @@ public class CursosService implements ICursosService {
     @Override
     public void eliminarCurso(Long idCurso) {
         cursosRepository.deleteById(idCurso);
-    }
-
-    @Override
-    public List<Estudiantes> listarEstudiantesPorCurso(Long idCurso) {
-        return cursosRepository.listarEstudiantesPorCurso(idCurso);
     }
 }
