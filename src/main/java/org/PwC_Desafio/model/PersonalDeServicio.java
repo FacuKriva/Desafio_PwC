@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
@@ -17,5 +14,6 @@ import javax.persistence.Table;
 public class PersonalDeServicio extends Empleados{
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "seccion_asignada_id")
     private Seccion seccionAsignada;
 }

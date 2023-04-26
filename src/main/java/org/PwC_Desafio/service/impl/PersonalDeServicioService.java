@@ -1,6 +1,7 @@
 package org.PwC_Desafio.service.impl;
 
 import org.PwC_Desafio.model.PersonalDeServicio;
+import org.PwC_Desafio.model.Seccion;
 import org.PwC_Desafio.repositories.PersonalDeServicioRepository;
 import org.PwC_Desafio.service.IPersonalDeServicioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,11 @@ public class PersonalDeServicioService implements IPersonalDeServicioService {
     // --------------------------------------------------------------------------------------------------
     // TODO: Parte del requerimiento del desafío
     @Override
-    public PersonalDeServicio cambiarSeccion(Long id, long seccionAsignada) {
+    public PersonalDeServicio cambiarSeccion(Long id, Long idSeccion) {
         PersonalDeServicio personalDeServicio = personalDeServicioRepository.findById(id).get();
-        personalDeServicio.setSeccionAsignada(seccionAsignada);
+        Seccion seccion = new Seccion();
+        seccion.setId(idSeccion);
+        personalDeServicio.setSeccionAsignada(seccion);
         personalDeServicioRepository.save(personalDeServicio);
         return personalDeServicio;
     }
@@ -39,9 +42,11 @@ public class PersonalDeServicioService implements IPersonalDeServicioService {
     }
 
     @Override
-    public PersonalDeServicio asignarSeccion(Long id, long seccionAsignada) {
+    public PersonalDeServicio asignarSeccion(Long id, Long idSeccion) {
         PersonalDeServicio personalDeServicio = personalDeServicioRepository.findById(id).get();
-        personalDeServicio.setSeccionAsignada(seccionAsignada);
+        Seccion seccion = new Seccion();
+        seccion.setId(idSeccion);
+        personalDeServicio.setSeccionAsignada(seccion);
         personalDeServicioRepository.save(personalDeServicio);
         return personalDeServicio;
     }

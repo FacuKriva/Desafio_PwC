@@ -18,8 +18,8 @@ public class PersonalDeServicioController {
     // TODO: Parte del requerimiento del desafío.
     /* Cambiamos la sección de un empleado de servicio */
     @PostMapping("/{id}")
-    public ResponseEntity<PersonalDeServicio> cambiarSeccion(@RequestBody Long id, Seccion seccionAsignada) {
-        return ResponseEntity.ok(personalDeServicioService.cambiarSeccion(id, seccionAsignada));
+    public ResponseEntity<PersonalDeServicio> cambiarSeccion(@RequestBody Long id, @RequestParam Long idSeccion) {
+        return ResponseEntity.ok(personalDeServicioService.cambiarSeccion(id, idSeccion));
     }
 
     //----------------------------------------------------------------------------------------------------
@@ -46,8 +46,8 @@ public class PersonalDeServicioController {
 
     /* Agregamos un empleado de servicio a una sección */
     @PostMapping("/{id}")
-    public ResponseEntity<PersonalDeServicio> asignarSeccion(@RequestBody Long id, Seccion seccionAsignada) {
-        return ResponseEntity.ok(personalDeServicioService.asignarSeccion(id, seccionAsignada));
+    public ResponseEntity<PersonalDeServicio> asignarSeccion(@RequestBody Long id, @RequestParam Long idSeccion) {
+        return ResponseEntity.ok(personalDeServicioService.asignarSeccion(id, idSeccion));
     }
 
 }
