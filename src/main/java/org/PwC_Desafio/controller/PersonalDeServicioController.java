@@ -43,4 +43,11 @@ public class PersonalDeServicioController {
         personalDeServicioService.eliminarPersonalDeServicio(id);
         return ResponseEntity.ok().build();
     }
+
+    /* Agregamos un empleado de servicio a una sección */
+    @PostMapping("/{id}")
+    public ResponseEntity<PersonalDeServicio> asignarSeccion(@RequestBody Long id, Seccion seccionAsignada) {
+        return ResponseEntity.ok(personalDeServicioService.asignarSeccion(id, seccionAsignada));
+    }
+
 }
