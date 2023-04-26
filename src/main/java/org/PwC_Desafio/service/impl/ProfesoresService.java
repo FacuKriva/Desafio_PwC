@@ -42,4 +42,14 @@ public class ProfesoresService implements IProfesoresService{
         profesoresRepository.deleteById(id);
     }
 
+    @Override
+    public Profesores asignarDepartamento(Long id, Long idDepartamento) {
+        Profesores profesor = profesoresRepository.findById(id).get();
+        Departamentos departamento = new Departamentos();
+        departamento.setId(idDepartamento);
+        profesor.setDepartamentoAsignado(departamento);
+        profesoresRepository.save(profesor);
+        return profesor;
+    }
+
 }

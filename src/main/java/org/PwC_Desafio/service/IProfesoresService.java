@@ -22,5 +22,8 @@ public interface IProfesoresService {
 
     /* Eliminamos un profesor por su id */
     void eliminarProfesores(Long id);
+
+    /* Le asignamos un departamento a un profesor */
+    Profesores asignarDepartamento(Long id, Long idDepartamento);
 }
 
