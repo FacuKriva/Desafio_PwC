@@ -1,6 +1,7 @@
 package org.PwC_Desafio.service.impl;
 
 import org.PwC_Desafio.model.Estudiantes;
+import org.PwC_Desafio.repositories.CursosRepository;
 import org.PwC_Desafio.repositories.EstudiantesRepository;
 import org.PwC_Desafio.service.IEstudiantesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +12,16 @@ public class EstudiantesService implements IEstudiantesService {
 
     @Autowired
     EstudiantesRepository estudiantesRepository;
-//---------------------------------------------------------------------------------------------------
+    @Autowired
+    private CursosRepository cursosRepository;
+
+    //---------------------------------------------------------------------------------------------------
     // TODO: Parte del requerimiento del desafío.
     @Override
-    public String matricularEstudiantes(Long id, Long idCurso) {
+    /* Matriculamos u  estudiantes en un curso, y se modifica cursoMatriculado */
+    public Estudiantes matricularEstudiantes(Long id, Long idCurso) {
         Estudiantes estudiantes = estudiantesRepository.findById(id).get();
-        estudiantes.setCurso(idCurso);
+        estudiantes.setCursoMatriculado(cursosRepository.findById(idCurso).get());
         estudiantesRepository.save(estudiantes);
 
         return estudiantes;
@@ -43,10 +48,9 @@ public class EstudiantesService implements IEstudiantesService {
     @Override
     public Estudiantes desmatricularEstudiantes(Long id) {
         Estudiantes estudiantes = estudiantesRepository.findById(id).get();
-        estudiantes.setCurso(null);
+        estudiantes.setCursoMatriculado(null);
         estudiantesRepository.save(estudiantes);
 
         return estudiantes;
     }
-
 }
