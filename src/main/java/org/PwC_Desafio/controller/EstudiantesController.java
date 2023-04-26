@@ -18,6 +18,7 @@ public class EstudiantesController {
 
     //---------------------------------------------------------------------------------------------------
     // TODO: Parte del requerimiento del desafío.
+    /* Matriculamos un estudiante a un curso */
     @PutMapping("/{id}")
     public ResponseEntity<Estudiantes> matricularEstudiante(@PathVariable Long id, @RequestParam Long idCurso) {
         return ResponseEntity.ok(estudiantesService.matricularEstudiantes(id, idCurso));
@@ -25,11 +26,13 @@ public class EstudiantesController {
     //----------------------------------------------------------------------------------------------------
     // Adicional
 
+    /* Agregamos un estudiante */
     @PostMapping
     public ResponseEntity<Estudiantes> crearEstudiantes(@RequestBody Estudiantes estudiante) {
         return ResponseEntity.ok(estudiantesService.crearEstudiantes(estudiante));
     }
 
+    /* Buscamos un estudiante por su id */
     @GetMapping("/{id}")
     public ResponseEntity<Estudiantes> buscarEstudiantesPorId(@PathVariable Long id){
         Estudiantes estudianteABuscar = estudiantesService.buscarEstudiantesPorId(id);
@@ -40,12 +43,14 @@ public class EstudiantesController {
         return ResponseEntity.ok(estudianteABuscar);
     }
 
+    /* Borramos un estudiante */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarEstudiantes(@PathVariable Long id){
         estudiantesService.eliminarEstudiantes(id);
         return ResponseEntity.ok().build();
     }
 
+    /* Desmatriculamos un estudiante de un curso */
     @PutMapping("/{id}")
     public ResponseEntity<Estudiantes> desmatricularEstudiantes(@PathVariable Long id) {
         return ResponseEntity.ok(estudiantesService.desmatricularEstudiantes(id));

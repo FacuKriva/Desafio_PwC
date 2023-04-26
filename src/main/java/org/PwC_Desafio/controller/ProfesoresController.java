@@ -17,6 +17,7 @@ public class ProfesoresController {
 
     //---------------------------------------------------------------------------------------------------
     // TODO: Parte del requerimiento del desafío.
+    /* Cambiamos el departamento de un profesor */
     @PutMapping("/{id}")
     public ResponseEntity<Profesores> cambiarDepartamento(@PathVariable Long id, @RequestParam Long idDepartamento) {
         return ResponseEntity.ok(profesoresService.cambiarDepartamento(id, idDepartamento));
@@ -24,11 +25,13 @@ public class ProfesoresController {
     //----------------------------------------------------------------------------------------------------
     // Adicional
 
+    /* Agregamos un profesor */
     @PostMapping
     public ResponseEntity<Profesores> crearProfesor(@RequestBody Profesores profesor) {
         return ResponseEntity.ok(profesoresService.crearProfesores(profesor));
     }
 
+    /* Buscamos un profesor por su id */
     @GetMapping("/{id}")
     public ResponseEntity<Profesores> buscarProfesor(@PathVariable Long id){
         Profesores profesorABuscar = profesoresService.buscarProfesoresPorId(id);
@@ -39,6 +42,7 @@ public class ProfesoresController {
         return ResponseEntity.ok(profesorABuscar);
     }
 
+    /* Borramos a un profesor */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarProfesor(@PathVariable Long id){
         profesoresService.eliminarProfesores(id);

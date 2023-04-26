@@ -17,6 +17,7 @@ public class PersonaController {
 
     //---------------------------------------------------------------------------------------------------
     // TODO: Parte del requerimiento del desafío.
+    /* Modificamos el estado civil de una persona */
     @PutMapping("/{id}")
     public ResponseEntity<Persona> modificarPersonaEstadoCivil(@PathVariable Long id, @RequestParam String estadoCivil) {
         return ResponseEntity.ok(personaService.modificarPersonaEstadoCivil(id, estadoCivil));
@@ -24,11 +25,13 @@ public class PersonaController {
     //----------------------------------------------------------------------------------------------------
     // Adicional
 
+    /* Agregamos una persona */
     @PostMapping
     public ResponseEntity<Persona> crearPersona(@RequestBody Persona persona) {
         return ResponseEntity.ok(personaService.crearPersona(persona));
     }
 
+    /* Buscamos a una persona en particular */
     @GetMapping("/{id}")
     public ResponseEntity<Persona> buscarPersona(@PathVariable Long id){
         Persona personaABuscar = personaService.buscarPersonaPorId(id);
@@ -39,6 +42,7 @@ public class PersonaController {
         return ResponseEntity.ok(personaABuscar);
     }
 
+    /* Borramos a una persona */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarPersona(@PathVariable Long id){
         personaService.eliminarPersona(id);
