@@ -18,7 +18,7 @@ public class EstudiantesService implements IEstudiantesService {
     //---------------------------------------------------------------------------------------------------
     // TODO: Parte del requerimiento del desafío.
     @Override
-    /* Matriculamos u  estudiantes en un curso, y se modifica cursoMatriculado */
+    /* Matriculamos un estudiante en un curso */
     public Estudiantes matricularEstudiantes(Long id, Long idCurso) {
         Estudiantes estudiantes = estudiantesRepository.findById(id).get();
         estudiantes.setCursoMatriculado(cursosRepository.findById(idCurso).get());
