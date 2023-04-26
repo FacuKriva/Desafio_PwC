@@ -18,6 +18,11 @@ public class DepartamentosService implements IDepartamentosService {
     }
 
     @Override
+    public Departamentos buscarDepartamentoPorId(Long idDepartamento) {
+        return departamentosRepository.findById(idDepartamento).get();
+    }
+
+    @Override
     public Departamentos modificarDepartamento(Departamentos departamento) {
         return departamentosRepository.save(departamento);
     }
