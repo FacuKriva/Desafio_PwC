@@ -24,6 +24,8 @@ public class ProfesoresServiceTest {
         profesores.setApellido("González");
         profesores.setDni("12.345.678");
         profesores.setEstadoCivil("Casado");
+        profesores.setAnioDeIncorporacion("2010");
+        profesores.setNumeroDeDespachoAsignado("M-2");
         profesores.setDepartamentoAsignado(null);
 
         Profesores profesores2 = new Profesores();
@@ -31,6 +33,8 @@ public class ProfesoresServiceTest {
         profesores2.setApellido("Doe");
         profesores2.setDni("99.345.678");
         profesores2.setEstadoCivil("Casado");
+        profesores2.setAnioDeIncorporacion("2015");
+        profesores2.setNumeroDeDespachoAsignado("L-3");
         profesores2.setDepartamentoAsignado(null);
 
         Profesores profesores3 = new Profesores();
@@ -38,6 +42,8 @@ public class ProfesoresServiceTest {
         profesores3.setApellido("Doe");
         profesores3.setDni("99.543.897");
         profesores3.setEstadoCivil("Casada");
+        profesores3.setAnioDeIncorporacion("2008");
+        profesores3.setNumeroDeDespachoAsignado("A-2");
         profesores3.setDepartamentoAsignado(null);
 
         Profesores profesores4 = new Profesores();
@@ -45,6 +51,8 @@ public class ProfesoresServiceTest {
         profesores4.setApellido("Saviola");
         profesores4.setDni("28.478.625");
         profesores4.setEstadoCivil("Soltero");
+        profesores4.setAnioDeIncorporacion("2018");
+        profesores4.setNumeroDeDespachoAsignado("M-2");
         profesores4.setDepartamentoAsignado(null);
 
     }
