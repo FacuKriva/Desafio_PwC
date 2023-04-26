@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "empleados")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Empleados extends Persona {
+public class Empleados extends Persona {
 
         private String anioDeIncorporacion;
         private String numeroDeDespachoAsignado;
