@@ -33,7 +33,7 @@ public class CursosServiceTest {
     }
 
     // ---------------------------------------------------------------------------------------------
-    // TODO: Parte del requerimiento del desafio
+    // TODO: Parte del requerimiento del desafío
     @Test
     @Order(2)
     public void listarEstudiantesPorCurso() {

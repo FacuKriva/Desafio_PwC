@@ -32,6 +32,8 @@ public class DepartamentosServiceTest {
         departamentos3.setNombre("Arquitectura");
     }
 
+    // ---------------------------------------------------------------------------------------------
+    // TODO: Parte del requerimiento del desafío
     @Test
     @Order(2)
     public void listarProfesoresPorDepartamento() {
@@ -44,4 +46,5 @@ public class DepartamentosServiceTest {
         Departamentos departamentos3 =
                 (Departamentos) departamentosService.listarProfesoresPorDepartamento(300L);
     }
+    // ---------------------------------------------------------------------------------------------
 }

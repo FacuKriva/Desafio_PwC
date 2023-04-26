@@ -59,7 +59,7 @@ public class ProfesoresServiceTest {
     }
 
     //-----------------------------------------------------------------------------------------------
-    // TODO: Parte del requerimiento del desafio
+    // TODO: Parte del requerimiento del desafío
     @Test
     @Order(3)
     public void cambiarDepartamento() {
