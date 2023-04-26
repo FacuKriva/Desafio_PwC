@@ -7,9 +7,16 @@ import java.util.List;
 
 public interface ICursosService {
 
-    /* Registramos, modificamos y eliminamos un curso */
+    /* Registramos un curso */
     Cursos registrarCurso(Cursos curso);
+
+    /* Buscamos un curso por su id */
+    Cursos buscarCursoPorId(Long idCurso);
+
+    /* Modificamos un curso */
     Cursos modificarCurso(Cursos curso);
+
+    /* Eliminamos un curso por su id */
     void eliminarCurso(Long idCurso);
 
     /* Listamos a todos los estudiantes en un curso específico */

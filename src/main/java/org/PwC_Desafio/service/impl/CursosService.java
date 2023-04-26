@@ -29,6 +29,11 @@ public class CursosService implements ICursosService {
     }
 
     @Override
+    public Cursos buscarCursoPorId(Long idCurso) {
+        return cursosRepository.findById(idCurso).get();
+    }
+
+    @Override
     public Cursos modificarCurso(Cursos curso) {
         return cursosRepository.save(curso);
     }
