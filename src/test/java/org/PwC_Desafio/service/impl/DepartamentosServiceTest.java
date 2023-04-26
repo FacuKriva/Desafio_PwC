@@ -20,11 +20,28 @@ public class DepartamentosServiceTest {
     @Order(1)
     public void crearDepartamentos() {
         Departamentos departamentos = new Departamentos();
-        departamentos.setId(11L);
+        departamentos.setId(100L);
         departamentos.setNombre("Matematica");
 
         Departamentos departamentos2 = new Departamentos();
-        departamentos2.setId(22L);
+        departamentos2.setId(200L);
         departamentos2.setNombre("Lengua");
+
+        Departamentos departamentos3 = new Departamentos();
+        departamentos3.setId(300L);
+        departamentos3.setNombre("Arquitectura");
+    }
+
+    @Test
+    @Order(2)
+    public void listarProfesoresPorDepartamento() {
+        Departamentos departamentos =
+                (Departamentos) departamentosService.listarProfesoresPorDepartamento(100L);
+
+        Departamentos departamentos2 =
+                (Departamentos) departamentosService.listarProfesoresPorDepartamento(200L);
+
+        Departamentos departamentos3 =
+                (Departamentos) departamentosService.listarProfesoresPorDepartamento(300L);
     }
 }
