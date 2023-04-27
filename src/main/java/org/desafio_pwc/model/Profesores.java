@@ -1,4 +1,4 @@
-package org.pwc_desafio.model;
+package org.desafio_pwc.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,13 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
+@Setter @Getter
+@AllArgsConstructor @NoArgsConstructor
 @Entity
-@Table(name = "estudiantes")
+@Table(name = "profesores")
 @PrimaryKeyJoinColumn(name = "person_id")
-public class Estudiantes extends Persona {
+public class Profesores extends Empleados {
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Cursos cursoMatriculado;
+    private Departamentos departamentoAsignado;
 }

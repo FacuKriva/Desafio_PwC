@@ -1,12 +1,10 @@
-package org.pwc_desafio.model;
+package org.desafio_pwc.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.Optional;
 
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor

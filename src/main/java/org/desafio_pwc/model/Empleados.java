@@ -1,4 +1,4 @@
-package org.pwc_desafio.model;
+package org.desafio_pwc.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

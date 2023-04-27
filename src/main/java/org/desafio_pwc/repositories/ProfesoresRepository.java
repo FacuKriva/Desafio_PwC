@@ -1,6 +1,6 @@
-package org.pwc_desafio.repositories;
+package org.desafio_pwc.repositories;
 
-import org.pwc_desafio.model.Profesores;
+import org.desafio_pwc.model.Profesores;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

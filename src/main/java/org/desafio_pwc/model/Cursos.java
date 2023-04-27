@@ -1,4 +1,4 @@
-package org.pwc_desafio.model;
+package org.desafio_pwc.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,17 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
+@AllArgsConstructor @NoArgsConstructor
 @Entity
-@Table(name = "persona")
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Persona {
+@Table(name = "cursos")
+public class Cursos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    private String apellido;
-    private String dni;
-    private String estadoCivil;
-
 }
