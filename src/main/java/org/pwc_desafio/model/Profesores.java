@@ -1,21 +1,20 @@
-package org.PwC_Desafio.model;
+package org.pwc_desafio.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.util.Optional;
 
 @Setter @Getter
 @AllArgsConstructor @NoArgsConstructor
 @Entity
 @Table(name = "profesores")
+@PrimaryKeyJoinColumn(name = "person_id")
 public class Profesores extends Empleados {
-    @ManyToOne
-    @JoinColumn(name = "departamento_asignado_id")
+
+    @ManyToOne(fetch = FetchType.EAGER)
     private Departamentos departamentoAsignado;
 }

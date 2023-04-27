@@ -1,19 +1,20 @@
-package org.PwC_Desafio.model;
+package org.pwc_desafio.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import java.util.Optional;
 
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 @Entity
-@Table(name = "personalDeServicio")
+@Table(name = "personal-de-servicio")
+@PrimaryKeyJoinColumn(name = "person_id")
 public class PersonalDeServicio extends Empleados{
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "seccion_asignada_id")
+    @ManyToOne(fetch = FetchType.EAGER)
     private Seccion seccionAsignada;
 }

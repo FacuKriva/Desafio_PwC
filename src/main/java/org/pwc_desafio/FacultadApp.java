@@ -1,4 +1,4 @@
-package org.PwC_Desafio;
+package org.pwc_desafio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
