@@ -1,17 +1,16 @@
-package org.PwC_Desafio.model;
+package org.pwc_desafio.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import javax.persistence.*;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
 @Entity
-@Table(name = "departamentos")
-public class Departamentos {
-
+@Table(name = "cursos")
+public class Cursos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -1,18 +1,15 @@
-package org.PwC_Desafio.model;
+package org.pwc_desafio.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
-
 @Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
+@AllArgsConstructor @NoArgsConstructor
 @Entity
 @Table(name = "empleados")
+@PrimaryKeyJoinColumn(name = "person_id")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Empleados extends Persona {
 
