@@ -1,36 +1,33 @@
-package org.PwC_Desafio.service.impl;
+package org.pwc_desafio.service;
 
-import org.PwC_Desafio.model.Seccion;
-import org.PwC_Desafio.repositories.SeccionRepository;
-import org.PwC_Desafio.service.ISeccionService;
+import org.pwc_desafio.model.Seccion;
+import org.pwc_desafio.repositories.SeccionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SeccionService implements ISeccionService {
+public class SeccionService {
+
+    private final SeccionRepository seccionRepository;
 
     @Autowired
-    SeccionRepository seccionRepository;
+    SeccionService(SeccionRepository seccionRepository) {
+        this.seccionRepository = seccionRepository;
+    }
 
-    @Override
     public Seccion registrarSeccion(Seccion seccion) {
         return seccionRepository.save(seccion);
     }
 
-    @Override
     public Seccion buscarSeccionPorId(Long idSeccion) {
-        return seccionRepository.findById(idSeccion).get();
+        return seccionRepository.findById(idSeccion).orElse(null);
     }
 
-    @Override
     public Seccion modificarSeccion(Seccion seccion) {
         return seccionRepository.save(seccion);
     }
 
-    @Override
     public void eliminarSeccion(Long idSeccion) {
         seccionRepository.deleteById(idSeccion);
     }
-
-
 }

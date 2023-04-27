@@ -1,55 +1,56 @@
-package org.PwC_Desafio.service.impl;
+package org.pwc_desafio.service;
 
-import org.PwC_Desafio.model.Departamentos;
-import org.PwC_Desafio.model.Profesores;
-import org.PwC_Desafio.repositories.DepartamentosRepository;
-import org.PwC_Desafio.repositories.ProfesoresRepository;
-import org.PwC_Desafio.service.IProfesoresService;
+import org.pwc_desafio.model.Departamentos;
+import org.pwc_desafio.model.Profesores;
+import org.pwc_desafio.repositories.ProfesoresRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class ProfesoresService implements IProfesoresService{
+@Service
+public class ProfesoresService {
+
+    private final ProfesoresRepository profesoresRepository;
 
     @Autowired
-    ProfesoresRepository profesoresRepository;
+    ProfesoresService(ProfesoresRepository profesoresRepository) {
+        this.profesoresRepository = profesoresRepository;
+    }
 
     // -------------------------------------------------------------------------------------------
     // TODO: Parte del requerimiento del desafío.
-    @Override
+    /* Cambiamos a un profesor de departamento */
     public Profesores cambiarDepartamento(Long id, Long idDepartamento) {
-        Profesores profesor = profesoresRepository.findById(id).get();
+        Profesores profesor = profesoresRepository.findById(id).orElse(null);
         Departamentos departamento = new Departamentos();
         departamento.setId(idDepartamento);
+        assert profesor != null;
         profesor.setDepartamentoAsignado(departamento);
         profesoresRepository.save(profesor);
+
         return profesor;
     }
     // -------------------------------------------------------------------------------------------
     // Adicional
-
-    @Override
     public Profesores crearProfesores(Profesores profesores) {
         profesoresRepository.save(profesores);
         return profesores;
     }
 
-    @Override
     public Profesores buscarProfesoresPorId(Long id) {
-        return profesoresRepository.findById(id).get();
+        return profesoresRepository.findById(id).orElse(null);
     }
 
-    @Override
     public void eliminarProfesores(Long id) {
         profesoresRepository.deleteById(id);
     }
 
-    @Override
     public Profesores asignarDepartamento(Long id, Long idDepartamento) {
-        Profesores profesor = profesoresRepository.findById(id).get();
+        Profesores profesor = profesoresRepository.findById(id).orElse(null);
         Departamentos departamento = new Departamentos();
+        assert profesor != null;
         departamento.setId(idDepartamento);
         profesor.setDepartamentoAsignado(departamento);
         profesoresRepository.save(profesor);
         return profesor;
     }
-
 }

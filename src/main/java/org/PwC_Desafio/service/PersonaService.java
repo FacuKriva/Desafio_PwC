@@ -1,26 +1,29 @@
-package org.PwC_Desafio.service.impl;
+package org.pwc_desafio.service;
 
-import org.PwC_Desafio.model.Persona;
-import org.PwC_Desafio.repositories.PersonaRepository;
-import org.PwC_Desafio.service.IPersonaService;
+import org.pwc_desafio.model.Persona;
+import org.pwc_desafio.repositories.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PersonaService implements IPersonaService {
+public class PersonaService {
+
+    private final PersonaRepository personaRepository;
 
     @Autowired
-    PersonaRepository personaRepository;
+    PersonaService(PersonaRepository personaRepository) {
+        this.personaRepository = personaRepository;
+    }
 
     //---------------------------------------------------------------------------------------------------
     // TODO: Parte del requerimiento del desafío.
-    @Override
+    /* Modificamos el estado civil de una persona. */
     public Persona modificarPersonaEstadoCivil(Long id, String estadoCivil) {
-        Persona persona = personaRepository.findById(id).get();
+        Persona persona = personaRepository.findById(id).orElse(null);
+        assert persona != null;
         persona.setEstadoCivil(estadoCivil);
         personaRepository.save(persona);
 
         return persona;
     }
 }
-    //----------------------------------------------------------------------------------------------------
